@@ -1,4 +1,4 @@
-# Xamai 3S
+# ENTRE SÉRIES
 
 Timer gratuito para o descanso entre séries: quatro atalhos de 10, 30, 60 e 90 segundos iniciam com um toque. Personalização de 1 a 600 segundos, pausa, repetição, som, arco regressivo, instalação e cache offline. Sem login, anúncios ou dependências de produção.
 

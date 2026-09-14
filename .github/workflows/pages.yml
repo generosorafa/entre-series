@@ -1,4 +1,4 @@
-name: Publish Xamai 3S
+name: Publish ENTRE SÉRIES
 on:
   push:
     branches: [main]

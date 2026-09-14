@@ -23,7 +23,7 @@ Abra http://127.0.0.1:4173/ . O build faz verificações de sintaxe, manifesto e
 - Media Session fornece metadados e pausa/continuação onde suportado. Não equivale a Live Activity/AlarmKit nem garante Dynamic Island. Pode interromper Spotify e outros áudios.
 - Screen Wake Lock enquanto ativo, sujeito à disponibilidade/permissão do navegador.
 - Preferências/estado local. Nenhuma informação de saúde, conta ou analytics.
-- Service worker com cache de versão e manifest com escopo relativo, compatível com `/xamai-3s/` no GitHub Pages.
+- Service worker com cache de versão e manifest com escopo relativo, compatível com `/entre-series/` no GitHub Pages.
 - Worker opcional com agendamento Web Push, desativado por padrão e separado de `public/`. Guia: [CLOUDFLARE.md](CLOUDFLARE.md).
 
 ## Publicação gratuita

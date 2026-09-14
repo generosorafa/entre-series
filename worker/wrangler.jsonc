@@ -1,0 +1,14 @@
+{
+  "name": "xamai-3s-push",
+  "main": "index.js",
+  "compatibility_date": "2026-09-14",
+  "workers_dev": true,
+  "observability": { "enabled": false },
+  "vars": {
+    "ALLOWED_ORIGIN": "https://generosorafa.github.io",
+    "VAPID_SUBJECT": "https://generosorafa.github.io/xamai-3s/",
+    "ENABLED": "false"
+  },
+  "durable_objects": { "bindings": [{ "name": "TIMERS", "class_name": "TimerAlarm" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["TimerAlarm"] }]
+}

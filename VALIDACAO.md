@@ -26,3 +26,13 @@ Data: 14/09/2026.
 2. Site estático no GitHub Pages pela restrição de custo zero. Rever somente se os limites do site/plataforma impedirem uso real.
 3. Oferecer áudio opcional com tiques audíveis e sinal final numa faixa finita, sem loop silencioso para manter o navegador ativo. Rever se testes em aparelhos não forem confiáveis.
 4. Preparar Cloudflare Free com SQLite Durable Objects para push e impedir implantação ativa antes dos segredos/configuração. Rever com base na entrega real, consumo de cotas e cadastro do proprietário.
+
+## Atualização HIIT — 14/09/2026
+
+- 24 testes automatizados passaram (14 existentes + 10 novos): fases e limites, suspensão, pausa no descanso, retomada, ausência de descanso final, voz em etapas curtas e PCM com sinal final embutido. Build valida todos os HTMLs e arquivos do cache offline.
+- Chrome: sequência 2 × 10 s + 5 s chegou a Concluído / Série 2 de 2; sequência com etapas de 1 s e descanso de 15 s exibiu descanso em verde e concluiu sem pausa extra. Voz e bolso foram ativados pelos controles.
+- Pausa com 01:21 restantes, recarga e continuação conservaram a posição. Encerrar libera a configuração. Timer rápido de 10 s inicia por um toque e conclui.
+- Layout inspecionado em 320 px, 390 px e desktop: sem rolagem horizontal (320 px de conteúdo para 320 px de viewport), ação principal de 52 px. A distinção de fase usa texto além de cor. Preferência de movimento reduzido mantém o arco em passos por segundo.
+- O usuário confirmou som/avisos no aparelho bloqueado na versão anterior. Não foi feita ainda validação do HIIT em iPhone/Android reais bloqueados, nem avaliação auditiva pelo agente. Testar voz, última troca, pausas por chamadas, fones/música e volume no aparelho antes de considerar esses casos confirmados.
+- Nenhuma dependência npm de produção adicionada. O site inclui aproximadamente 51 KB de amostras de voz em base64. Ferramentas Python de conversão ficam apenas na pasta ignorada work; fontes e licença estão nos créditos.
+- Offline confirmado: servidor local desligado, página HIIT recarregada do cache e treino de 6 s com voz e bolso ativados executado até Concluído.

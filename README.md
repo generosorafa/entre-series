@@ -44,3 +44,13 @@ Após mudar um arquivo do app, incrementar `CACHE` em `public/sw.js`. O service 
 ## Próximo lote
 
 Configurar Cloudflare Free com conta do proprietário, publicar o Worker e testar notificações no iPhone instalado. Observar uso em treinos: toque até início, facilidade de leitura e conclusão percebida. Somente depois decidir se há necessidade de recursos nativos.
+
+## HIIT
+
+A aba HIIT usa uma página própria no mesmo aplicativo e preserva o timer rápido. Padrão: 5 séries de 90 segundos, com 15 segundos entre séries (8:30). Não há descanso depois da última série. Aceita 1–30 séries, 1–600 segundos de exercício, 0–600 de descanso e até 30 minutos no total. As configurações ficam bloqueadas durante o treino; Encerrar libera a edição.
+
+O motor `public/workout.js` calcula as etapas por posição absoluta. Sem áudio, usa o relógio; com áudio, acompanha `HTMLAudioElement.currentTime`. Uma única faixa WAV finita inclui todos os sinais e a voz opcional nos últimos cinco segundos de cada etapa. Etapas menores contam apenas os segundos disponíveis. A faixa termina com três sinais; não há loop silencioso. O tamanho máximo de PCM temporário é aproximadamente 29 MB, liberado após reprodução/encerramento; nenhum áudio longo é baixado.
+
+`public/voice-en.js` inclui cinco gravações curtas adaptadas de Dvortygirl / Wikimedia Commons. Fontes, alterações e licença CC BY-SA 3.0 estão em `public/audio-credits.html`. `scripts/prepare-voice.py` permite reproduzir a conversão com soundfile e numpy em `work/voice-tools` (somente desenvolvimento; não fazem parte do site nem da instalação npm).
+
+Pausa e retomada mantêm a posição. Reabrir um treino com áudio o restaura pausado e exige um toque para continuar. Trocar de modo pelo menu pausa o timer anterior. As notificações locais de fim do HIIT usam a permissão já concedida e dependem de execução do aplicativo; o HIIT não usa o Worker de descanso nem exige Cloudflare. O áudio pode assumir a sessão de mídia, interromper música e sofrer interrupções do sistema. Não equivale a alarme nativo/Live Activity.

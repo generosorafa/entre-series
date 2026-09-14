@@ -92,4 +92,6 @@ $('#notifications').addEventListener('click',async()=>{
 });
 $('#disable-push').addEventListener('click',async()=>{try{await disableRemote(registration);notificationUI();$('#notification-help').textContent='Inscrição removida. Os avisos remotos foram desativados.'}catch{$('#notification-help').textContent='Não foi possível remover a inscrição. Conecte à internet e tente novamente.'}});
 if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready).then(reg=>{registration=reg;$('#offline').textContent='Pronto para abrir e usar sem internet. Avisos remotos precisam de conexão.';if(reg.waiting)$('#offline').textContent='Há uma atualização. Feche todas as janelas do ENTRE SÉRIES e abra novamente.'}).catch(()=>{$('#offline').textContent='Não foi possível preparar o uso offline. Abra novamente com internet.'})}else $('#offline').textContent='Este navegador não oferece instalação offline.';
+// Switching modes preserves the quick timer paused and cancels its remote alarm.
+$('#hiit-link').addEventListener('click',()=>{pause();stopAudio();persist()});
 paint();if(timer.state==='running')tick();

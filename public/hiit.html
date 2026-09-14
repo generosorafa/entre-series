@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+ <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+ <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-title" content="ENTRE SÉRIES">
+ <meta name="color-scheme" content="light dark">
+ <meta name="description" content="Seu treino HIIT com séries, descanso automático e contagem em inglês. Gratuito e offline.">
+ <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self' blob:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+ <title>ENTRE SÉRIES — HIIT</title>
+ <link rel="icon" href="./icon.svg" type="image/svg+xml">
+ <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+ <link rel="manifest" href="./manifest.webmanifest">
+ <link rel="stylesheet" href="./styles.css">
+ <script type="module" src="./hiit.js"></script>
+</head>
+<body>
+ <main class="app hiit-app">
+  <header class="heading"><span class="brand">ENTRE <b>SÉRIES</b></span><span class="small">No seu ritmo.</span></header>
+  <nav class="mode-tabs" aria-label="Modo de treino"><a id="rest-link" href="./index.html">Descanso</a><a href="./hiit.html" aria-current="page">HIIT</a></nav>
+  <div class="intro"><p class="eyebrow">TREINO EM INTERVALOS</p><h1>Uma série de cada vez.</h1><p class="caption">Você treina. A gente conta.</p></div>
+  <form id="workout-form">
+   <fieldset id="workout-fields"><legend class="sr-only">Configurar treino</legend>
+    <div class="workout-inputs">
+     <label for="rounds">Séries<input id="rounds" type="number" inputmode="numeric" min="1" max="30" value="5" required></label>
+     <label for="work">Exercício <span>(s)</span><input id="work" type="number" inputmode="numeric" min="1" max="600" value="90" required></label>
+     <label for="rest">Descanso <span>(s)</span><input id="rest" type="number" inputmode="numeric" min="0" max="600" value="15" required></label>
+    </div>
+    <p id="workout-summary" class="small">08:30 no total · sem descanso após a última série.</p>
+   </fieldset>
+  </form>
+  <div class="phase-heading"><span id="phase-label">EXERCÍCIO</span><span id="round-label">Série 1 de 5</span></div>
+  <div class="dial">
+   <svg viewBox="0 0 320 180" aria-hidden="true"><path class="track" d="M 20 160 A 140 140 0 0 1 300 160" pathLength="100"/><path class="progress" d="M 20 160 A 140 140 0 0 1 300 160" pathLength="100"/></svg>
+   <div class="reading"><div id="time" role="timer" aria-live="off" aria-label="Tempo restante nesta etapa">01:30</div><span id="duration">Depois: 15 s de descanso</span></div>
+  </div>
+  <p id="state" role="status" aria-live="polite">Pronto para a primeira série.</p>
+  <div class="actions"><button type="submit" form="workout-form" id="main-action" class="primary">Iniciar treino</button><button type="button" id="end-workout" class="secondary" disabled>Encerrar</button></div>
+  <p id="workout-message" class="small delivery" role="status"></p>
+  <details id="settings" open>
+   <summary>Som e contagem</summary>
+   <fieldset id="sound-fields" class="settings-content"><legend class="sr-only">Áudio do treino</legend>
+    <label class="check"><input id="voice" type="checkbox">Contar “5, 4, 3, 2, 1” em inglês</label>
+    <label class="check"><input id="bells" type="checkbox" checked>Sinais nas trocas e ao terminar</label>
+    <label class="check"><input id="pocket" type="checkbox">Áudio no bolso · tiques suaves</label>
+    <p class="small">A voz conta no fim de cada exercício e descanso. No bolso, o áudio pode interromper sua música. Teste com a tela bloqueada no seu aparelho.</p>
+    <button type="button" id="preview-voice" class="secondary full">Ouvir contagem</button>
+   </fieldset>
+  </details>
+  <p id="offline" class="small">Preparando uso offline…</p>
+  <footer><a href="./privacy.html">Privacidade</a> · <a href="./audio-credits.html">Créditos de áudio</a></footer>
+  <noscript>Ative o JavaScript para usar o treino HIIT.</noscript>
+ </main>
+ <audio id="audio" preload="auto" playsinline hidden></audio>
+</body>
+</html>
